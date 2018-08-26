@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Reservation Page</title>
+
+    <!-- Latest compiled and minified CSS & JS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="jumbotron">
+            <h1 class="text-center">
+                <span class="fa fa-fire"></span> Friend Finder</h1>
+            <hr>
+            <h2 class="text-center">Where you'll meet your next best friend!</h2>
+            <br>
+
+            <div class="text-center">
+                <a href="/tables">
+                    <button class="btn btn-lg btn-primary">
+                        <span class="fa fa-list-alt"></span> View Tables</button>
+                </a>
+                <a href="/">
+                    <button class="btn btn-lg btn-default">
+                        <span class="fa fa-home"></span>
+                    </button>
+                </a>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+
+                <!--Survey Page -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">Fill out the form below!</h4>
+                    </div>
+                    <div class="panel-body">
+
+                        <form role="form">
+
+                            <div class="form-group">
+                                <label for="friend-name">Name</label>
+                                <input type="text" class="form-control" id="friend-name">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="friend-photo">Photo URL</label>
+                                <input  type="text" class="form-control" id="friend-photo">
+                            </div>
+
+                            <h3>
+                                <strong>Question 1</strong>
+                            </h3>
+                            <h4>You always like something savory over something sweet</h4>
+                            <select class="chosen-select" id="q1">
+                                <option value=""></option>
+                                <option value="1">1 (Strongly Disagree)</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5 (Strongly Agree)</option>
+                            </select>
+
+                            <h3>
+                                <strong>Question 2</strong>
+                            </h3>
+                            <h4>When at a cafe or restaurant, you like to open a conversation with the barista/server with
+                                small talk
+                            </h4>
+                            <select class="chosen-select" id="q2">
+                                <option value=""></option>
+                                <option value="1">1 (Strongly Disagree)</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5 (Strongly Agree)</option>
+                            </select>
+
+
+                            <h3>
+                                <strong>Question 3</strong>
+                            </h3>
+                            <h4>You're a big supporter of a Friday night out, over a Friday night in.</h4>
+                            <select class="chosen-select" id="q3">
+                                <option value=""></option>
+                                <option value="1">1 (Strongly Disagree)</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5 (Strongly Agree)</option>
+                            </select>
+
+
+                            <h3>
+                                <strong>Question 4</strong>
+                            </h3>
+                            <h4>You cook at home more than you eat out</h4>
+                            <select class="chosen-select" id="q4">
+                                <option value=""></option>
+                                <option value="1">1 (Strongly Disagree)</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5 (Strongly Agree)</option>
+                            </select>
+
+
+                            <h3>
+                                <strong>Question 5</strong>
+                            </h3>
+                            <h4>At a party, you would be the one who is engaged in a serious discussion.</h4>
+                            <select class="chosen-select" id="q5">
+                                <option value=""></option>
+                                <option value="1">1 (Strongly Disagree)</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5 (Strongly Agree)</option>
+                            </select>
+
+
+                            <h3>
+                                <strong>Question 6</strong>
+                            </h3>
+                            <h4>You prefer wine over beer.</h4>
+                            <select class="chosen-select" id="q6">
+                                <option value=""></option>
+                                <option value="1">1 (Strongly Disagree)</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5 (Strongly Agree)</option>
+                            </select>
+
+
+                            <h3>
+                                <strong>Question 7</strong>
+                            </h3>
+                            <h4>When asked to choose between chocolate and cheese, you choose cheese.</h4>
+                            <select class="chosen-select" id="q7">
+                                <option value=""></option>
+                                <option value="1">1 (Strongly Disagree)</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5 (Strongly Agree)</option>
+                            </select>
+
+                            <h3>
+                                <strong>Question 8</strong>
+                            </h3>
+                            <h4>People would say you're more creative than you are systematic.</h4>
+                            <select class="chosen-select" id="q8">
+                                <option value=""></option>
+                                <option value="1">1 (Strongly Disagree)</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5 (Strongly Agree)</option>
+                            </select>
+
+
+
+                            <button type="submit" class="btn btn-primary submit">Submit</button>
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <footer class="footer">
+
+        </footer>
+
+    </div>
+
+</body>
+
+</html>
+
+<!-- BELOW CODE IS CRITICAL. IT HANDLES HOW FORM DATA IS SENT TO OUR SERVER -->
+<script type="text/javascript">
+
+    // In this code below we create the Front-end JavaScript which "POSTS" our form data to our express server.
+    // In essence, when the user hits submit, jQuery grabs all of the fields then sends a post request to our api
+    // Our api recognizes the route (/api/tables)... and then runs the associated code (found in api-routes.js).
+    // In this case the associated code "saves" the data to the table-data.js file or waitinglist-data.js file
+
+    // Getting Form Data
+
+    $(".submit").on("click", function (event) {
+        event.preventDefault();
+
+        // Here we grab the form elements
+        var newSurvey = {
+            name: $("#friend-name").val().trim(),
+            photo: $("#friend-photo").val().trim(),
+            score1: $("#q1").val().trim(),
+            score2: $("#q2").val().trim(),
+            score3: $("#q3").val().trim(),
+            score4: $("#q4").val().trim(),
+            score5: $("#q5").val().trim(),
+            score6: $("#q6").val().trim(),
+            score7: $("#q7").val().trim(),
+            score8: $("#q8").val().trim(),
+
+        };
+
+        console.log(newSurvey);
+
+
+        // Clear the form when submitting
+
+        $("#friend-name").val(""),
+            $("#friend-photo").val(""),
+            $("#q1").val(""),
+            $("#q2").val(""),
+            $("#q3").val(""),
+            $("#q4").val(""),
+            $("#q5").val(""),
+            $("#q6").val(""),
+            $("#q7").val(""),
+            $("#q8").val("")
+
+    });
+
+module.exports = newSurvey;
+
+</script>
