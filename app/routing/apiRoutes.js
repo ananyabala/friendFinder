@@ -1,8 +1,6 @@
 var friends = require("../data/friends");
 // var newSurvey = require("../public/survey.html");
 
-
-
 module.exports = function (app) {
 
   // * A GET route with the url `/api/friends`. This will be used to display a JSON of all possible friends.
@@ -11,46 +9,54 @@ module.exports = function (app) {
   });
 
 
-  // * A POST routes `/api/friends`. This will be used to handle incoming survey results. This route will also be used to handle the compatibility logic.
+  // * A POST route `/api/friends`. This will be used to handle incoming survey results. This route will also be used to handle the compatibility logic.
   // Create New Friends - takes in JSON input
-  app.post("/api/friends", 
-  function (req, res) {
-    // // req.body hosts is equal to the JSON post sent from the user
-    // // This works because of our body-parser middleware
-    // var newSurvey = req.body;
+  app.post("/api/friends",
+    function (req, res) {
 
-    // console.log(newSurvey);
+      friends.push(req.body);
+      res.json(true);
+      var totalScore = "";
+      // App Logic on Finding a Friend
 
-    // // We then add the json the user sent to the friends array
-    // friends.push(newSurvey);
+      // Applying the following code to all friends pushed into the 'friends' object
+      for (var i = 0; i < friends.length; i++) {
 
-    // // Adding the new object to the friends array 
+        // Comparing the current array with all of the arrays in the friends object
+        for (j = 0; j < friends.length; j++) {
+          var difference = console.log(difference(scores, friends.scores));
+          console.log(sum());
+          
 
+        };
+        // This is the array where the difference between two arrays will be stored
+        
+  
+      }
+      var difference = [];
+      function difference(array1,array2) {
+        for (var i = 0; i < scores.length; i++) {
+          difference.push(array1 - array2);
+          console.log(difference);
+        }
+      }
 
-    // // We then display the JSON to the users
-    // res.json(newSurvey);
+      function sum() {
+        var sum = 0;
+        for (var i = 0; i < difference.length; i++) {
+          sum += difference[i];
+        }
+      }
 
-    // ***************
+      // Modal Code here... ? 
 
-    friends.push(req.body);
-    console.log(friends);
-    console.table(friends);
-
-    // ***************
-  });
-
-  // app.post("/api/tables", function(req, res) {
-  //   // Note the code here. Our "server" will respond to requests and let users know if they have a table or not.
-  //   // It will do this by sending out the value "true" have a table
-  //   // req.body is available since we're using the body-parser middleware
-  //   if (tableData.length < 5) {
-  //     tableData.push(req.body);
-  //     res.json(true);
-  //   }
-  //   else {
-  //     waitListData.push(req.body);
-  //     res.json(false);
-  //   }
-  // });
+    });
 };
+
+
+  // taken from Stack Overflow
+
+
+
+
 
