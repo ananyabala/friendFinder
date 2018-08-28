@@ -61,7 +61,7 @@
                             </h3>
                             <h4>You always like something savory over something sweet</h4>
                             <select class="chosen-select" id="q1">
-                                <option value=""></option>
+                                
                                 <option value="1">1 (Strongly Disagree)</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -76,7 +76,7 @@
                                 small talk
                             </h4>
                             <select class="chosen-select" id="q2">
-                                <option value=""></option>
+                              
                                 <option value="1">1 (Strongly Disagree)</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -90,7 +90,7 @@
                             </h3>
                             <h4>You're a big supporter of a Friday night out, over a Friday night in.</h4>
                             <select class="chosen-select" id="q3">
-                                <option value=""></option>
+                                
                                 <option value="1">1 (Strongly Disagree)</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -104,7 +104,7 @@
                             </h3>
                             <h4>You cook at home more than you eat out</h4>
                             <select class="chosen-select" id="q4">
-                                <option value=""></option>
+                                
                                 <option value="1">1 (Strongly Disagree)</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -118,7 +118,7 @@
                             </h3>
                             <h4>At a party, you would be the one who is engaged in a serious discussion.</h4>
                             <select class="chosen-select" id="q5">
-                                <option value=""></option>
+                                
                                 <option value="1">1 (Strongly Disagree)</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -132,7 +132,7 @@
                             </h3>
                             <h4>You prefer wine over beer.</h4>
                             <select class="chosen-select" id="q6">
-                                <option value=""></option>
+                               
                                 <option value="1">1 (Strongly Disagree)</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -146,7 +146,7 @@
                             </h3>
                             <h4>When asked to choose between chocolate and cheese, you choose cheese.</h4>
                             <select class="chosen-select" id="q7">
-                                <option value=""></option>
+                           
                                 <option value="1">1 (Strongly Disagree)</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -159,7 +159,7 @@
                             </h3>
                             <h4>People would say you're more creative than you are systematic.</h4>
                             <select class="chosen-select" id="q8">
-                                <option value=""></option>
+                             
                                 <option value="1">1 (Strongly Disagree)</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -184,7 +184,33 @@
         </footer>
 
     </div>
-
+<!-- Modal -->
+<div id="bestFriendModal" class="modal fade" role="dialog">
+        <div class="modal-dialog"> 
+  
+          <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h3 class="modal-title"><strong>Best Match</strong></h3>
+            </div>
+            <div class="modal-body">
+              <h2 id="bestFriendName"></h2>
+              <img id="bestFriendImg" src="https://ak.picdn.net/assets/cms/97e1dd3f8a3ecb81356fe754a1a113f31b6dbfd4-stock-photo-photo-of-a-common-kingfisher-alcedo-atthis-adult-male-perched-on-a-lichen-covered-branch-107647640.jpg" alt=""  height="250" width="250">
+              <span id="audio"></span>
+            </div>
+             <!-- <audio controls>
+              <source id="GameWon" src="assets\sounds\win.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+          </audio> - -->
+            <!-- <audio id="GameWon" src="assets\sounds\win.mp3">Your browser does not support this audio format</audio> -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+  
+        </div>
+      </div> 
 </body>
 
 </html>
@@ -225,7 +251,12 @@
             $("#q6").val(""),
             $("#q7").val(""),
             $("#q8").val("")
+            $.post("/api/friends",newSurvey,function(data){
+                console.log(data);
+              
+    
+})
+       
     });
-
 
 </script>

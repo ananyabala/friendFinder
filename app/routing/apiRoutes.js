@@ -13,48 +13,39 @@ module.exports = function (app) {
   // Create New Friends - takes in JSON input
   app.post("/api/friends",
     function (req, res) {
-
+      console.log(req.body)
+      var newFriend = req.body;
       friends.push(req.body);
       res.json(true);
       var totalScore = "";
       // App Logic on Finding a Friend
-
+      var difference = 0;
+      var alldiff = []
       // Applying the following code to all friends pushed into the 'friends' object
       for (var i = 0; i < friends.length; i++) {
 
         // Comparing the current array with all of the arrays in the friends object
-        for (j = 0; j < friends.length; j++) {
-          var difference = console.log(difference(scores, friends.scores));
-          console.log(sum());
-          
+        for (j = 0; j < 8; j++) {
+          // var difference = console.log(difference(scores, friends.scores));
+          difference += Math.abs(friends[i].scores[j] - newFriend.scores[j]);
+
 
         };
+        alldiff.push(difference)
+        console.log("AD:" + alldiff);
+        difference = 0;
         // This is the array where the difference between two arrays will be stored
-        
-  
       }
-      var difference = [];
-      function difference(array1,array2) {
-        for (var i = 0; i < scores.length; i++) {
-          difference.push(array1 - array2);
-          console.log(difference);
-        }
-      }
-
-      function sum() {
-        var sum = 0;
-        for (var i = 0; i < difference.length; i++) {
-          sum += difference[i];
-        }
-      }
-
-      // Modal Code here... ? 
-
+      var bestmatch = friends[alldiff.indexOf(Math.min.apply(null, alldiff))];
+      console.log(bestmatch);
+      res.send(bestmatch);
+      
     });
+
 };
 
 
-  // taken from Stack Overflow
+
 
 
 
