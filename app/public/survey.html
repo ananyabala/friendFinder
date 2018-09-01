@@ -61,7 +61,7 @@
                             </h3>
                             <h4>You always like something savory over something sweet</h4>
                             <select class="chosen-select" id="q1">
-                                
+
                                 <option value="1">1 (Strongly Disagree)</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -76,7 +76,7 @@
                                 small talk
                             </h4>
                             <select class="chosen-select" id="q2">
-                              
+
                                 <option value="1">1 (Strongly Disagree)</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -90,7 +90,7 @@
                             </h3>
                             <h4>You're a big supporter of a Friday night out, over a Friday night in.</h4>
                             <select class="chosen-select" id="q3">
-                                
+
                                 <option value="1">1 (Strongly Disagree)</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -104,7 +104,7 @@
                             </h3>
                             <h4>You cook at home more than you eat out</h4>
                             <select class="chosen-select" id="q4">
-                                
+
                                 <option value="1">1 (Strongly Disagree)</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -118,7 +118,7 @@
                             </h3>
                             <h4>At a party, you would be the one who is engaged in a serious discussion.</h4>
                             <select class="chosen-select" id="q5">
-                                
+
                                 <option value="1">1 (Strongly Disagree)</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -132,7 +132,7 @@
                             </h3>
                             <h4>You prefer wine over beer.</h4>
                             <select class="chosen-select" id="q6">
-                               
+
                                 <option value="1">1 (Strongly Disagree)</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -146,7 +146,7 @@
                             </h3>
                             <h4>When asked to choose between chocolate and cheese, you choose cheese.</h4>
                             <select class="chosen-select" id="q7">
-                           
+
                                 <option value="1">1 (Strongly Disagree)</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -159,7 +159,7 @@
                             </h3>
                             <h4>People would say you're more creative than you are systematic.</h4>
                             <select class="chosen-select" id="q8">
-                             
+
                                 <option value="1">1 (Strongly Disagree)</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -167,9 +167,6 @@
                                 <option value="5">5 (Strongly Agree)</option>
                             </select>
 
-
-
-                            <button type="submit" class="btn btn-primary submit">Submit</button>
                         </form>
 
                     </div>
@@ -178,39 +175,41 @@
             </div>
         </div>
 
+        <br>
 
-        <footer class="footer">
+        <!-- Modal -->
+        <button type="submit" class="btn btn-primary submit" data-toggle="modal" data-target="#exampleModal" data-whatever="bestmatch">Submit</button>
 
-        </footer>
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Your best friend is:</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body row">
+                        <div class="col-6 bestfriend">
 
-    </div>
-<!-- Modal -->
-<div id="bestFriendModal" class="modal fade" role="dialog">
-        <div class="modal-dialog"> 
-  
-          <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <h3 class="modal-title"><strong>Best Match</strong></h3>
+                        </div>
+                        <div class="col-6 you">
+
+                        </div>
+                        <!-- This is where the best friend information should be going -->
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                    </div>
+                </div>
             </div>
-            <div class="modal-body">
-              <h2 id="bestFriendName"></h2>
-              <img id="bestFriendImg" src="https://ak.picdn.net/assets/cms/97e1dd3f8a3ecb81356fe754a1a113f31b6dbfd4-stock-photo-photo-of-a-common-kingfisher-alcedo-atthis-adult-male-perched-on-a-lichen-covered-branch-107647640.jpg" alt=""  height="250" width="250">
-              <span id="audio"></span>
-            </div>
-             <!-- <audio controls>
-              <source id="GameWon" src="assets\sounds\win.mp3" type="audio/mpeg">
-              Your browser does not support the audio element.
-          </audio> - -->
-            <!-- <audio id="GameWon" src="assets\sounds\win.mp3">Your browser does not support this audio format</audio> -->
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-          </div>
-  
         </div>
-      </div> 
+    </div>
+    <footer class="footer">
+
+    </footer>
 </body>
 
 </html>
@@ -218,7 +217,10 @@
 
 <script type="text/javascript">
 
-
+    // Variables
+    var diff = 0;
+    var diffArr = [];
+    var bestmatch = 0;
     // Getting Form Data
 
     $(".submit").on("click", function (event) {
@@ -228,14 +230,14 @@
         var newSurvey = {
             name: $("#friend-name").val().trim(),
             photo: $("#friend-photo").val().trim(),
-            scores: [$("#q1").val().trim(),
-            $("#q2").val().trim(),
-            $("#q3").val().trim(),
-            $("#q4").val().trim(),
-            $("#q5").val().trim(),
-            $("#q6").val().trim(),
-            $("#q7").val().trim(),
-            $("#q8").val().trim()]
+            scores: [parseInt($("#q1").val().trim()),
+            parseInt($("#q2").val().trim()),
+            parseInt($("#q3").val().trim()),
+            parseInt($("#q4").val().trim()),
+            parseInt($("#q5").val().trim()),
+            parseInt($("#q6").val().trim()),
+            parseInt($("#q7").val().trim()),
+            parseInt($("#q8").val().trim())]
 
         };
         console.log(newSurvey);
@@ -251,12 +253,56 @@
             $("#q6").val(""),
             $("#q7").val(""),
             $("#q8").val("")
-            $.post("/api/friends",newSurvey,function(data){
-                console.log(data);
-              
-    
-})
-       
-    });
 
+        var currentURL = window.location.origin;
+        console.log(currentURL);
+
+        $.ajax({
+            url: currentURL + "/api/friends",
+            method: "GET"
+        }).then(function (data) {
+            console.log(currentURL + "/api/friends");
+            console.log(data);
+
+            for (var i = 0; i < data.length; i++) {
+
+                console.log(data[i].scores);
+                console.log(newSurvey.scores);
+
+                for (var j = 0; j < 8; j++) {
+
+                    console.log("Score of " + data[i].name + ": " + data[i].scores[j]);
+                    console.log("Score of " + newSurvey.name + ": " + newSurvey.scores[j]);
+
+                    // Sum the differences
+                    diff += Math.abs((data[i].scores[j]) - (newSurvey.scores[j]));
+                }
+                console.log("Sum of differences between " + data[i].name + " and " + newSurvey.name + " :" + diff);
+                // Push all of the differences into an array
+                diffArr.push(diff);
+                diff = 0;
+            }
+            console.log("Array of differences for " + newSurvey.name + " :" + diffArr);
+
+            // Find the minimum in the array
+            console.log("The smallest difference here is : " + Math.min.apply(null, diffArr));
+
+            // Who has the smallest difference
+            bestmatch = diffArr.indexOf(Math.min.apply(null, diffArr));
+            console.log("Index number of smallest difference : " + bestmatch);
+
+            // Match the index number with the person
+            console.log(data);
+            console.log("Your bestfriend is : " + data[bestmatch].name);
+            console.log("Picture : " + data[bestmatch].photo);
+
+            // Modal animation js
+
+            $('.modal-title').text('Your bestfriend is... ' + data[bestmatch].name);
+            var BFphoto = $(`<img src=${data[bestmatch].photo} class='img-fluid'>`);
+            var youphoto = $(`<img src=${newSurvey.photo} class='img-fluid'>`);
+            $('.bestfriend').append(BFphoto).append("<span>", data[bestmatch].name);
+            $('.you').append(youphoto).append("<span>", newSurvey.name);
+        })
+    })
 </script>
