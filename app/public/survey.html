@@ -200,7 +200,7 @@
 
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="close-modal">Close</button>
 
                     </div>
                 </div>
@@ -282,6 +282,7 @@
                 diffArr.push(diff);
                 diff = 0;
             }
+            console.log(diffArr);
             console.log("Array of differences for " + newSurvey.name + " :" + diffArr);
 
             // Find the minimum in the array
@@ -295,14 +296,26 @@
             console.log(data);
             console.log("Your bestfriend is : " + data[bestmatch].name);
             console.log("Picture : " + data[bestmatch].photo);
+            diffArr=[];
 
             // Modal animation js
 
+            $('.modal-title').empty();
+            $('.bestfriend').empty();
+            $('.you').empty();
             $('.modal-title').text('Your bestfriend is... ' + data[bestmatch].name);
             var BFphoto = $(`<img src=${data[bestmatch].photo} class='img-fluid'>`);
             var youphoto = $(`<img src=${newSurvey.photo} class='img-fluid'>`);
             $('.bestfriend').append(BFphoto).append("<span>", data[bestmatch].name);
             $('.you').append(youphoto).append("<span>", newSurvey.name);
         })
+
+        // Changing page once survey is completed
+        $("#close-modal").on("click", function () {
+           setTimeout(function () {
+               location.reload()
+           }, 1000);
+       });
+        
     })
 </script>
